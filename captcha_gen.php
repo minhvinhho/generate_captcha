@@ -30,8 +30,8 @@ $pixel_color = imagecolorallocate($target_layer, 0,0,255);
 for($i=0;$i<1000;$i++) {
     imagesetpixel($target_layer,rand()%400,rand()%50,$pixel_color);
 }  
-imagettftext($target_layer, $font_size, 0, 25, 35, $captcha_text_color, 'font/CINEMATIME.TTF', $captcha_code);
-
+$font = dirname(__FILE__) . '/font/CINEMATIME.TTF';
+imagettftext($target_layer, $font_size, 0, 25, 35, $captcha_text_color, $font, $captcha_code);
 
 header("Content-type: image/jpeg");
 imagejpeg($target_layer);
